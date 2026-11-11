@@ -24,13 +24,12 @@ if (Test-Path $assetsDir) {
 }
 
 # Zip into .ipa
-$ipaPath = Join-Path $PSScriptRoot 'public\downloads\musenix-musical-release.ipa'
+$ipaPath = Join-Path $PSScriptRoot 'public\downloads\MusenixMusical-1.0.0.ipa'
 if (Test-Path $ipaPath) { Remove-Item -Force $ipaPath }
 
 $tempZip = Join-Path $base 'musenix.zip'
 Compress-Archive -Path (Join-Path $base 'Payload') -DestinationPath $tempZip -CompressionLevel Optimal
 Move-Item $tempZip $ipaPath -Force
-Copy-Item $ipaPath (Join-Path $PSScriptRoot 'public\downloads\MUSENIX-Musical-v1.0.0.ipa') -Force
 Remove-Item -Recurse -Force $base
 
 Write-Host "BERHASIL MEMBUAT IPA: $ipaPath"

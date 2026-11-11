@@ -7,8 +7,8 @@ Website resmi modern, responsif, dan mobile-friendly untuk **MUSENIX Musical** y
 ## 🚀 Fitur Utama Website
 
 1. **Dual Category Download**:
-   - 🤖 **Android (APK Langsung)**: Download langsung berkas `MUSENIX-Musical-v1.0.0.apk` (48.6 MB), panduan instalasi 3 langkah, info spesifikasi minimum (Android 7.0+), dan QR Code scanner untuk download langsung di HP.
-   - 🍏 **iOS (Apple PWA & TestFlight)**: Panduan instalasi Progressive Web App (PWA) instan via Safari (*Add to Home Screen*) tanpa perlu sideloading, serta link TestFlight Beta.
+   - 🤖 **Android (APK Langsung)**: Download langsung berkas `MusenixMusical-1.0.0.apk` (85.9 MB), panduan instalasi 3 langkah, info spesifikasi minimum (Android 7.0+), dan QR Code scanner untuk download langsung di HP.
+   - 🍏 **iOS (IPA & WebClip)**: Berkas biner `MusenixMusical-1.0.0.ipa` (15.0 MB) untuk sideloading, serta profil WebClip `.mobileconfig` instan via Safari (*Add to Home Screen*).
 2. **Interactive Live Audio Player Preview**:
    - Pemutar lagu interaktif langsung di halaman web dengan equalizer gelombang suara animasi (*live waveform*), seekbar, kontrol play/pause, dan pergantian lagu contoh (*Nadhif Basalamah - Penjaga Hati* & *Tulus - Hati-Hati di Jalan*).
 3. **Desain Modern & Profesional**:
@@ -46,8 +46,9 @@ Website akan aktif di:
 ## 🌐 Endpoint & Rute URL
 
 - `GET /` : Halaman landing page MUSENIX Musical
-- `GET /download/android` : Download otomatis berkas APK Android (`MUSENIX-Musical-v1.0.0.apk`)
-- `GET /download/ios` : Arahkan langsung ke panduan instalasi iOS PWA
+- `GET /download/android` : Download otomatis berkas APK Android (`MusenixMusical-1.0.0.apk`)
+- `GET /download/ios` : Download otomatis berkas IPA iOS (`MusenixMusical-1.0.0.ipa`)
+- `GET /download/ios-profile` : Unduh profil konfigurasi iOS WebClip (`musenix-musical.mobileconfig`)
 - `GET /api/info` : Endpoint status API informasi aplikasi (versi, ukuran berkas, status)
 - `GET /audio/*` : Streaming audio preview dengan dukungan HTTP Range Request (206 Partial Content)
 

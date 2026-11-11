@@ -36,17 +36,26 @@ const MIME_TYPES = {
 
 // Find APK file path (check public/downloads or flutter build output)
 function getApkFilePath() {
-  const localApk = path.join(PUBLIC_DIR, 'downloads', 'musenix-musical-release.apk');
-  if (fs.existsSync(localApk)) return localApk;
+  const namedApk = path.join(PUBLIC_DIR, 'downloads', 'MusenixMusical-1.0.0.apk');
+  if (fs.existsSync(namedApk)) return namedApk;
+
+  const flutterNamedApk = path.join(__dirname, '..', 'build', 'app', 'outputs', 'flutter-apk', 'MusenixMusical-1.0.0.apk');
+  if (fs.existsSync(flutterNamedApk)) return flutterNamedApk;
 
   const flutterApk = path.join(__dirname, '..', 'build', 'app', 'outputs', 'flutter-apk', 'app-release.apk');
   if (fs.existsSync(flutterApk)) return flutterApk;
+
+  const localApk = path.join(PUBLIC_DIR, 'downloads', 'musenix-musical-release.apk');
+  if (fs.existsSync(localApk)) return localApk;
 
   return null;
 }
 
 // Find iOS IPA file path
 function getIpaFilePath() {
+  const namedIpa = path.join(PUBLIC_DIR, 'downloads', 'MusenixMusical-1.0.0.ipa');
+  if (fs.existsSync(namedIpa)) return namedIpa;
+
   const localIpa = path.join(PUBLIC_DIR, 'downloads', 'musenix-musical-release.ipa');
   if (fs.existsSync(localIpa)) return localIpa;
   return null;
@@ -81,7 +90,7 @@ const server = http.createServer((req, res) => {
     const range = req.headers.range;
 
     res.setHeader('Content-Type', 'application/vnd.android.package-archive');
-    res.setHeader('Content-Disposition', 'attachment; filename="MUSENIX-Musical-v1.0.0.apk"');
+    res.setHeader('Content-Disposition', 'attachment; filename="MusenixMusical-1.0.0.apk"');
     res.setHeader('Accept-Ranges', 'bytes');
     res.setHeader('Cache-Control', 'no-cache');
 
@@ -123,7 +132,7 @@ const server = http.createServer((req, res) => {
 
     const stat = fs.statSync(ipaPath);
     res.setHeader('Content-Type', 'application/octet-stream');
-    res.setHeader('Content-Disposition', 'attachment; filename="MUSENIX-Musical-v1.0.0.ipa"');
+    res.setHeader('Content-Disposition', 'attachment; filename="MusenixMusical-1.0.0.ipa"');
     res.setHeader('Accept-Ranges', 'bytes');
     res.setHeader('Content-Length', stat.size);
     res.setHeader('Cache-Control', 'no-cache');
