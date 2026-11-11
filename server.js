@@ -77,85 +77,24 @@ const server = http.createServer((req, res) => {
   const safePath = path.posix.normalize(cleanPath).replace(/^(\.\.[\/])+/g, '');
   const route = safePath.toLowerCase().replace(/\/+$/, '') || '/';
 
-  // ROUTE: Direct Android APK Download
+  // ROUTE: Direct Android APK Download (Redirect to canonical named file)
   if (route === '/download/android' || route === '/download/apk') {
-    const apkPath = getApkFilePath();
-    if (!apkPath || !fs.existsSync(apkPath)) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Berkas APK belum siap. Silakan build APK terlebih dahulu.');
-      return;
-    }
-
-    const stat = fs.statSync(apkPath);
-    const range = req.headers.range;
-
-    res.setHeader('Content-Type', 'application/vnd.android.package-archive');
-    res.setHeader('Content-Disposition', 'attachment; filename="MusenixMusical-1.0.0.apk"');
-    res.setHeader('Accept-Ranges', 'bytes');
-    res.setHeader('Cache-Control', 'no-cache');
-
-    if (range) {
-      const parts = range.replace(/bytes=/, '').split('-');
-      const start = parseInt(parts[0], 10);
-      const end = parts[1] ? parseInt(parts[1], 10) : stat.size - 1;
-
-      if (start >= stat.size) {
-        res.writeHead(416, { 'Content-Range': `bytes */${stat.size}` });
-        return res.end();
-      }
-
-      const chunksize = end - start + 1;
-      res.writeHead(206, {
-        'Content-Range': `bytes ${start}-${end}/${stat.size}`,
-        'Content-Length': chunksize,
-      });
-
-      const file = fs.createReadStream(apkPath, { start, end });
-      file.pipe(res);
-    } else {
-      res.writeHead(200, {
-        'Content-Length': stat.size,
-      });
-      fs.createReadStream(apkPath).pipe(res);
-    }
+    res.writeHead(302, { 'Location': '/downloads/MusenixMusical-1.0.0.apk' });
+    res.end();
     return;
   }
 
-  // ROUTE: Direct iOS IPA Download
+  // ROUTE: Direct iOS IPA Download (Redirect to canonical named file)
   if (route === '/download/ios' || route === '/download/ipa' || route === '/download/ios-ipa') {
-    const ipaPath = getIpaFilePath();
-    if (!ipaPath || !fs.existsSync(ipaPath)) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Berkas IPA iOS belum siap.');
-      return;
-    }
-
-    const stat = fs.statSync(ipaPath);
-    res.setHeader('Content-Type', 'application/octet-stream');
-    res.setHeader('Content-Disposition', 'attachment; filename="MusenixMusical-1.0.0.ipa"');
-    res.setHeader('Accept-Ranges', 'bytes');
-    res.setHeader('Content-Length', stat.size);
-    res.setHeader('Cache-Control', 'no-cache');
-    res.writeHead(200);
-    fs.createReadStream(ipaPath).pipe(res);
+    res.writeHead(302, { 'Location': '/downloads/MusenixMusical-1.0.0.ipa' });
+    res.end();
     return;
   }
 
   // ROUTE: iOS Apple Profile (.mobileconfig) Download
   if (route === '/download/ios-profile' || route === '/download/profile') {
-    const profilePath = getProfileFilePath();
-    if (!profilePath || !fs.existsSync(profilePath)) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Berkas Apple MobileConfig belum siap.');
-      return;
-    }
-
-    const stat = fs.statSync(profilePath);
-    res.setHeader('Content-Type', 'application/x-apple-aspen-config');
-    res.setHeader('Content-Disposition', 'attachment; filename="MUSENIX-Musical.mobileconfig"');
-    res.setHeader('Content-Length', stat.size);
-    res.writeHead(200);
-    fs.createReadStream(profilePath).pipe(res);
+    res.writeHead(302, { 'Location': '/downloads/musenix-musical.mobileconfig' });
+    res.end();
     return;
   }
 
@@ -234,6 +173,17 @@ const server = http.createServer((req, res) => {
   const range = req.headers.range;
 
   // Support Range requests for media (audio preview)
+  if (ext === '.apk') {
+    res.setHeader('Content-Disposition', 'attachment; filename="MusenixMusical-1.0.0.apk"');
+    res.setHeader('Cache-Control', 'no-cache');
+  } else if (ext === '.ipa') {
+    res.setHeader('Content-Disposition', 'attachment; filename="MusenixMusical-1.0.0.ipa"');
+    res.setHeader('Cache-Control', 'no-cache');
+  } else if (ext === '.mobileconfig') {
+    res.setHeader('Content-Disposition', 'attachment; filename="musenix-musical.mobileconfig"');
+    res.setHeader('Cache-Control', 'no-cache');
+  }
+
   if (range && (ext === '.mp3' || ext === '.m4a' || ext === '.apk')) {
     const parts = range.replace(/bytes=/, '').split('-');
     const start = parseInt(parts[0], 10);

@@ -1,0 +1,8 @@
+/download/android       /downloads/MusenixMusical-1.0.0.apk       302!
+/download/apk           /downloads/MusenixMusical-1.0.0.apk       302!
+/download/ios           /downloads/MusenixMusical-1.0.0.ipa       302!
+/download/ipa           /downloads/MusenixMusical-1.0.0.ipa       302!
+/download/ios-profile   /downloads/musenix-musical.mobileconfig   302!
+/api/info               /api/info.json                            200!
+/*                      /index.html                               200
+

@@ -1,0 +1,40 @@
+/download/android
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0.apk"
+  Cache-Control: no-cache
+
+/download/apk
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0.apk"
+  Cache-Control: no-cache
+
+/downloads/MusenixMusical-1.0.0.apk
+  Content-Type: application/vnd.android.package-archive
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0.apk"
+  Cache-Control: no-cache
+
+/download/ios
+  Content-Type: application/octet-stream
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0.ipa"
+  Cache-Control: no-cache
+
+/download/ipa
+  Content-Type: application/octet-stream
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0.ipa"
+  Cache-Control: no-cache
+
+/downloads/MusenixMusical-1.0.0.ipa
+  Content-Type: application/octet-stream
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0.ipa"
+  Cache-Control: no-cache
+
+/downloads/musenix-musical.mobileconfig
+  Content-Type: application/x-apple-aspen-config
+  Content-Disposition: attachment; filename="musenix-musical.mobileconfig"
+  Cache-Control: no-cache
+
+/download/ios-profile
+  Content-Type: application/x-apple-aspen-config
+  Content-Disposition: attachment; filename="musenix-musical.mobileconfig"
+  Cache-Control: no-cache
+

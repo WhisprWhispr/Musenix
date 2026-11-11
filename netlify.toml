@@ -8,31 +8,31 @@
 [[redirects]]
   from = "/download/android"
   to = "/downloads/MusenixMusical-1.0.0.apk"
-  status = 200
+  status = 302
   force = true
 
 [[redirects]]
   from = "/download/apk"
   to = "/downloads/MusenixMusical-1.0.0.apk"
-  status = 200
+  status = 302
   force = true
 
 [[redirects]]
   from = "/download/ios"
   to = "/downloads/MusenixMusical-1.0.0.ipa"
-  status = 200
+  status = 302
   force = true
 
 [[redirects]]
   from = "/download/ipa"
   to = "/downloads/MusenixMusical-1.0.0.ipa"
-  status = 200
+  status = 302
   force = true
 
 [[redirects]]
   from = "/download/ios-profile"
   to = "/downloads/musenix-musical.mobileconfig"
-  status = 200
+  status = 302
   force = true
 
 [[redirects]]
@@ -42,10 +42,38 @@
   force = true
 
 [[headers]]
+  for = "/download/android"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0.apk\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/download/apk"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0.apk\""
+    Cache-Control = "no-cache"
+
+[[headers]]
   for = "/downloads/MusenixMusical-1.0.0.apk"
   [headers.values]
     Content-Type = "application/vnd.android.package-archive"
     Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0.apk\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/download/ios"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0.ipa\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/download/ipa"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0.ipa\""
     Cache-Control = "no-cache"
 
 [[headers]]
@@ -60,4 +88,11 @@
   [headers.values]
     Content-Type = "application/x-apple-aspen-config"
     Content-Disposition = "attachment; filename=\"musenix-musical.mobileconfig\""
+    Cache-Control = "no-cache"
 
+[[headers]]
+  for = "/download/ios-profile"
+  [headers.values]
+    Content-Type = "application/x-apple-aspen-config"
+    Content-Disposition = "attachment; filename=\"musenix-musical.mobileconfig\""
+    Cache-Control = "no-cache"
