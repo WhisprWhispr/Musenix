@@ -6,6 +6,8 @@
 /download/windows       /downloads/MusenixMusical-1.0.0-windows.zip   302!
 /download/win           /downloads/MusenixMusical-1.0.0-windows.zip   302!
 /download/pc            /downloads/MusenixMusical-1.0.0-windows.zip   302!
+/download/windows-exe   /downloads/MusenixMusical.exe                 302!
+/download/exe           /downloads/MusenixMusical.exe                 302!
 /api/info               /api/info.json                            200!
 /*                      /index.html                               200
 

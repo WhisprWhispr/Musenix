@@ -113,6 +113,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // ROUTE: Direct Windows EXE Launcher Download
+  if (route === '/download/windows-exe' || route === '/download/exe') {
+    res.writeHead(302, { 'Location': '/downloads/MusenixMusical.exe' });
+    res.end();
+    return;
+  }
+
   // ROUTE: API Info
   if (route === '/api/info') {
     const apkPath = getApkFilePath();

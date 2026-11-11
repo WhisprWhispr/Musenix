@@ -54,6 +54,18 @@
   force = true
 
 [[redirects]]
+  from = "/download/windows-exe"
+  to = "/downloads/MusenixMusical.exe"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/download/exe"
+  to = "/downloads/MusenixMusical.exe"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/api/info"
   to = "/api/info.json"
   status = 200
