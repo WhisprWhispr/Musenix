@@ -183,11 +183,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
+    if (!question) return;
     question.addEventListener('click', () => {
       const isOpen = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
+      faqItems.forEach(i => {
+        i.classList.remove('active');
+        const q = i.querySelector('.faq-question');
+        if (q) q.setAttribute('aria-expanded', 'false');
+      });
       if (!isOpen) {
         item.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
       }
     });
   });
