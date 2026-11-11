@@ -196,6 +196,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+
   // STATIC FILE SERVING
   let filePath = path.join(PUBLIC_DIR, safePath === '/' ? 'index.html' : safePath);
 
@@ -254,7 +255,7 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, {
       'Content-Type': contentType,
       'Content-Length': stat.size,
-      'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=86400',
+      'Cache-Control': (ext === '.html' || ext === '.css' || ext === '.js') ? 'no-cache' : 'public, max-age=86400',
     });
     fs.createReadStream(filePath).pipe(res);
   }

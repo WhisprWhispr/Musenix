@@ -192,14 +192,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. MOBILE MENU TOGGLE
+  // 4. MOBILE MENU & DRAWER CONTROLLER
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
+  const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openMobileNav() {
+    if (mobileNav) mobileNav.classList.add('open');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.add('open');
+    if (menuToggle) menuToggle.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileNav() {
+    if (mobileNav) mobileNav.classList.remove('open');
+    if (mobileNavBackdrop) mobileNavBackdrop.classList.remove('open');
+    if (menuToggle) menuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Expose globally for inline onclick handlers
+  window.closeMobileNav = closeMobileNav;
+  window.openMobileNav = openMobileNav;
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileNav && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
     });
   }
+
+  if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', closeMobileNav);
+  }
+
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener('click', closeMobileNav);
+  }
+
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
 
   // 5. FETCH LIVE API INFO
   fetch('/api/info')
