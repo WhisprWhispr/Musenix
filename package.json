@@ -1,0 +1,22 @@
+{
+  "name": "musenix-musical-website",
+  "version": "1.0.0",
+  "description": "Official Modern Responsive Website for MUSENIX Musical (Android & iOS)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "musenix",
+    "music",
+    "streaming",
+    "android",
+    "ios",
+    "landing-page"
+  ],
+  "author": "MUSENIX Team",
+  "license": "ISC",
+  "dependencies": {}
+}
+
