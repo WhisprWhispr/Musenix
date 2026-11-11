@@ -36,6 +36,24 @@
   force = true
 
 [[redirects]]
+  from = "/download/windows"
+  to = "/downloads/MusenixMusical-1.0.0-windows.zip"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/download/win"
+  to = "/downloads/MusenixMusical-1.0.0-windows.zip"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/download/pc"
+  to = "/downloads/MusenixMusical-1.0.0-windows.zip"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/api/info"
   to = "/api/info.json"
   status = 200
@@ -95,4 +113,32 @@
   [headers.values]
     Content-Type = "application/x-apple-aspen-config"
     Content-Disposition = "attachment; filename=\"musenix-musical.mobileconfig\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/download/windows"
+  [headers.values]
+    Content-Type = "application/zip"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0-windows.zip\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/download/win"
+  [headers.values]
+    Content-Type = "application/zip"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0-windows.zip\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/download/pc"
+  [headers.values]
+    Content-Type = "application/zip"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0-windows.zip\""
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/downloads/MusenixMusical-1.0.0-windows.zip"
+  [headers.values]
+    Content-Type = "application/zip"
+    Content-Disposition = "attachment; filename=\"MusenixMusical-1.0.0-windows.zip\""
     Cache-Control = "no-cache"

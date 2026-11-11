@@ -23,6 +23,7 @@ const MIME_TYPES = {
   '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.zip': 'application/zip',
   '.apk': 'application/vnd.android.package-archive',
   '.ipa': 'application/octet-stream',
   '.mobileconfig': 'application/x-apple-aspen-config',
@@ -68,6 +69,13 @@ function getProfileFilePath() {
   return null;
 }
 
+// Find Windows ZIP package
+function getWindowsFilePath() {
+  const winZip = path.join(PUBLIC_DIR, 'downloads', 'MusenixMusical-1.0.0-windows.zip');
+  if (fs.existsSync(winZip)) return winZip;
+  return null;
+}
+
 const server = http.createServer((req, res) => {
   const reqUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   const pathname = decodeURIComponent(reqUrl.pathname);
@@ -98,6 +106,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // ROUTE: Direct Windows Package Download
+  if (route === '/download/windows' || route === '/download/win' || route === '/download/pc') {
+    res.writeHead(302, { 'Location': '/downloads/MusenixMusical-1.0.0-windows.zip' });
+    res.end();
+    return;
+  }
+
   // ROUTE: API Info
   if (route === '/api/info') {
     const apkPath = getApkFilePath();
@@ -108,6 +123,10 @@ const server = http.createServer((req, res) => {
     const ipaExists = ipaPath && fs.existsSync(ipaPath);
     const ipaStat = ipaExists ? fs.statSync(ipaPath) : null;
 
+    const winPath = getWindowsFilePath();
+    const winExists = winPath && fs.existsSync(winPath);
+    const winStat = winExists ? fs.statSync(winPath) : null;
+
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
       appName: 'MUSENIX Musical',
@@ -117,7 +136,7 @@ const server = http.createServer((req, res) => {
         android: {
           available: apkExists,
           downloadUrl: '/download/android',
-          fileSize: apkStat ? (apkStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '48.6 MB',
+          fileSize: apkStat ? (apkStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '86.0 MB',
           lastUpdated: apkStat ? apkStat.mtime.toISOString() : new Date().toISOString(),
           minSdk: 'Android 7.0 (Nougat) +'
         },
@@ -125,9 +144,16 @@ const server = http.createServer((req, res) => {
           available: ipaExists,
           downloadUrl: '/download/ios',
           profileUrl: '/download/ios-profile',
-          fileSize: ipaStat ? (ipaStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '16.4 MB',
+          fileSize: ipaStat ? (ipaStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '15.7 MB',
           lastUpdated: ipaStat ? ipaStat.mtime.toISOString() : new Date().toISOString(),
           minOs: 'iOS 14.0 +'
+        },
+        windows: {
+          available: winExists,
+          downloadUrl: '/download/windows',
+          fileSize: winStat ? (winStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '29.2 MB',
+          lastUpdated: winStat ? winStat.mtime.toISOString() : new Date().toISOString(),
+          minOs: 'Windows 10 / 11 (64-Bit)'
         }
       },
       status: 'online'

@@ -3,6 +3,9 @@
 /download/ios           /downloads/MusenixMusical-1.0.0.ipa       302!
 /download/ipa           /downloads/MusenixMusical-1.0.0.ipa       302!
 /download/ios-profile   /downloads/musenix-musical.mobileconfig   302!
+/download/windows       /downloads/MusenixMusical-1.0.0-windows.zip   302!
+/download/win           /downloads/MusenixMusical-1.0.0-windows.zip   302!
+/download/pc            /downloads/MusenixMusical-1.0.0-windows.zip   302!
 /api/info               /api/info.json                            200!
 /*                      /index.html                               200
 

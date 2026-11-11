@@ -38,3 +38,24 @@
   Content-Disposition: attachment; filename="musenix-musical.mobileconfig"
   Cache-Control: no-cache
 
+/download/windows
+  Content-Type: application/zip
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0-windows.zip"
+  Cache-Control: no-cache
+
+/download/win
+  Content-Type: application/zip
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0-windows.zip"
+  Cache-Control: no-cache
+
+/download/pc
+  Content-Type: application/zip
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0-windows.zip"
+  Cache-Control: no-cache
+
+/downloads/MusenixMusical-1.0.0-windows.zip
+  Content-Type: application/zip
+  Content-Disposition: attachment; filename="MusenixMusical-1.0.0-windows.zip"
+  Cache-Control: no-cache
+
+
