@@ -266,6 +266,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ipaSizeEl && data.platform && data.platform.ios) {
         ipaSizeEl.textContent = data.platform.ios.fileSize;
       }
+      const winSizeEl = document.getElementById('winFileSize');
+      if (winSizeEl && data.platform && data.platform.windows) {
+        winSizeEl.textContent = data.platform.windows.fileSize + ' (.zip)';
+      }
     })
     .catch(() => {});
 });
