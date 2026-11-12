@@ -143,7 +143,7 @@ const server = http.createServer((req, res) => {
         android: {
           available: apkExists,
           downloadUrl: '/download/android',
-          fileSize: apkStat ? (apkStat.size / 1000000).toFixed(1) + ' MB' : '91.0 MB',
+          fileSize: apkStat ? (apkStat.size / 1000000).toFixed(1) + ' MB' : '91.1 MB',
           lastUpdated: apkStat ? apkStat.mtime.toISOString() : new Date().toISOString(),
           minSdk: 'Android 7.0 (Nougat) +'
         },
@@ -151,7 +151,7 @@ const server = http.createServer((req, res) => {
           available: ipaExists,
           downloadUrl: '/download/ios',
           profileUrl: '/download/ios-profile',
-          fileSize: ipaStat ? (ipaStat.size / 1000000).toFixed(1) + ' MB' : '15.7 MB',
+          fileSize: ipaStat ? (ipaStat.size / 1000000).toFixed(1) + ' MB' : '15.8 MB',
           lastUpdated: ipaStat ? ipaStat.mtime.toISOString() : new Date().toISOString(),
           minOs: 'iOS 14.0 +'
         },

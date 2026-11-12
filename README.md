@@ -7,8 +7,8 @@ Website resmi modern, responsif, dan mobile-friendly untuk **MUSENIX Musical** y
 ## 🚀 Fitur Utama Website
 
 1. **Dual Category Download**:
-   - 🤖 **Android (APK Langsung & Play Store Coming Soon)**: Download langsung berkas `MusenixMusical-1.0.0.apk` (91.0 MB), info rilis resmi Google Play Store (Coming Soon), panduan instalasi 3 langkah, info spesifikasi minimum (Android 7.0+), dan QR Code scanner untuk download langsung di HP.
-   - 🍏 **iOS (IPA & WebClip)**: Berkas biner `MusenixMusical-1.0.0.ipa` (15.7 MB) untuk sideloading, serta profil WebClip `.mobileconfig` instan via Safari (*Add to Home Screen*).
+   - 🤖 **Android (APK Langsung & Play Store Coming Soon)**: Download langsung berkas `MusenixMusical-1.0.0.apk` (91.1 MB), info rilis resmi Google Play Store (Coming Soon), panduan instalasi 3 langkah, info spesifikasi minimum (Android 7.0+), dan QR Code scanner untuk download langsung di HP.
+   - 🍏 **iOS (IPA & WebClip)**: Berkas biner `MusenixMusical-1.0.0.ipa` (15.8 MB) untuk sideloading, serta profil WebClip `.mobileconfig` instan via Safari (*Add to Home Screen*).
 2. **Interactive Live Audio Player Preview**:
    - Pemutar lagu interaktif langsung di halaman web dengan equalizer gelombang suara animasi (*live waveform*), seekbar, kontrol play/pause, dan pergantian lagu contoh (*Nadhif Basalamah - Penjaga Hati* & *Tulus - Hati-Hati di Jalan*).
 3. **Desain Modern & Profesional**:

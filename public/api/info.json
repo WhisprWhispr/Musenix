@@ -6,23 +6,23 @@
     "android": {
       "available": true,
       "downloadUrl": "/download/android",
-      "fileSize": "91.0 MB",
-      "lastUpdated": "2026-11-12T14:10:00.000Z",
+      "fileSize": "91.1 MB",
+      "lastUpdated": "2026-11-12T15:25:00.000Z",
       "minSdk": "Android 7.0 (Nougat) +"
     },
     "ios": {
       "available": true,
       "downloadUrl": "/download/ios",
       "profileUrl": "/download/ios-profile",
-      "fileSize": "15.7 MB",
-      "lastUpdated": "2026-11-12T14:10:00.000Z",
+      "fileSize": "15.8 MB",
+      "lastUpdated": "2026-11-12T15:25:00.000Z",
       "minOs": "iOS 14.0 +"
     },
     "windows": {
       "available": true,
       "downloadUrl": "/download/windows",
       "fileSize": "30.7 MB",
-      "lastUpdated": "2026-11-12T14:10:00.000Z",
+      "lastUpdated": "2026-11-12T15:25:00.000Z",
       "minOs": "Windows 10 / 11 (64-Bit)"
     }
   },
