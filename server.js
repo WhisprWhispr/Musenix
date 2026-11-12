@@ -143,7 +143,7 @@ const server = http.createServer((req, res) => {
         android: {
           available: apkExists,
           downloadUrl: '/download/android',
-          fileSize: apkStat ? (apkStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '86.0 MB',
+          fileSize: apkStat ? (apkStat.size / 1000000).toFixed(1) + ' MB' : '91.0 MB',
           lastUpdated: apkStat ? apkStat.mtime.toISOString() : new Date().toISOString(),
           minSdk: 'Android 7.0 (Nougat) +'
         },
@@ -151,14 +151,14 @@ const server = http.createServer((req, res) => {
           available: ipaExists,
           downloadUrl: '/download/ios',
           profileUrl: '/download/ios-profile',
-          fileSize: ipaStat ? (ipaStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '15.7 MB',
+          fileSize: ipaStat ? (ipaStat.size / 1000000).toFixed(1) + ' MB' : '15.7 MB',
           lastUpdated: ipaStat ? ipaStat.mtime.toISOString() : new Date().toISOString(),
           minOs: 'iOS 14.0 +'
         },
         windows: {
           available: winExists,
           downloadUrl: '/download/windows',
-          fileSize: winStat ? (winStat.size / (1024 * 1024)).toFixed(1) + ' MB' : '29.2 MB',
+          fileSize: winStat ? (winStat.size / 1000000).toFixed(1) + ' MB' : '30.7 MB',
           lastUpdated: winStat ? winStat.mtime.toISOString() : new Date().toISOString(),
           minOs: 'Windows 10 / 11 (64-Bit)'
         }
